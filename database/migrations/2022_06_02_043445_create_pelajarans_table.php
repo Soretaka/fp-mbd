@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('pelajarans', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->string('bab');
+            $table->text('teori');
+            $table->text('video');
             $table->timestamps();
         });
     }
