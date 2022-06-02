@@ -16,4 +16,7 @@ class soal extends Model
     public function ujian(){
         return $this->belongsTo(Ujian::class);
     }
+    public function pengajar(){
+        return $this->belongsTo(Pengajar::class);
+    }
 }
