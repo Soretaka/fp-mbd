@@ -17,7 +17,10 @@ class PelajarFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "nama"=> $this->faker->name(),
+            "kelas"=> $this->faker->numberBetween(1, 12),
+            "tanggal_lahir" => $this->faker->date(),
+            "tempat_lahir" => $this->faker->city()
         ];
     }
 }
