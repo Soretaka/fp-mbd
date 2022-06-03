@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\pelajar_ujian;
 
 class PelajarUjianSeeder extends Seeder
 {
@@ -14,6 +15,6 @@ class PelajarUjianSeeder extends Seeder
      */
     public function run()
     {
-        //
+        pelajar_ujian::factory(400)->create();
     }
 }
