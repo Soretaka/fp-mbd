@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+use App\Models\Ujian;
+
 class UjianSeeder extends Seeder
 {
     /**
@@ -14,6 +16,6 @@ class UjianSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Ujian::factory(20)->create();
     }
 }
