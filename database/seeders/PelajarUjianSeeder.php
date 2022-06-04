@@ -15,6 +15,7 @@ class PelajarUjianSeeder extends Seeder
      */
     public function run()
     {
-        pelajar_ujian::factory(400)->create();
+        pelajar_ujian::factory(300)->lulus()->create();
+        pelajar_ujian::factory(100)->tidak_lulus()->create();
     }
 }
