@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\UjianController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PelajarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/data_ujian', [UjianController::class, 'viewDataUjian']);
+Route::get('/lihat_dashboard/{pelajar:id}', [PelajarController::class, 'lihatDashboard']);
