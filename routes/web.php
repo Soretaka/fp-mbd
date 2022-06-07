@@ -26,3 +26,5 @@ Route::get('/data_ujian', [UjianController::class, 'viewDataUjian']);
 Route::get('/lihat_dashboard/{pelajar:id}', [PelajarController::class, 'lihatDashboard']);
 Route::get('/ujian/{ujian:id}/jumlah_lolos', [PelajarUjianController::class, 'countLolos']);
 Route::get('/pengajar/{pengajar:id}/jumlah_soal', [SoalController::class, 'countForPengajar']);
+Route::get('/ujian/jumlah_soal', [SoalController::class, 'viewPerPelajaran']);
+Route::get('/ujian/{pelajaran:id}/jumlah_soal', [SoalController::class, 'countForPelajaran']);
