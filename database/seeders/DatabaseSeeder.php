@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 use App\Models\pengajar;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\soal;
+use App\Models\pelajaran;
+use App\Models\Ujian;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,6 +24,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        soal::factory(20)->create();
+        pelajaran::factory(20)->create();
+        Ujian::factory(20)->create();
+        pengajar::factory(5)->create();
         $this->call([
             PelajaranSeeder::class,
             PelajaranUjianSeeder::class,

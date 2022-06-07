@@ -16,6 +16,11 @@ class PelajaranFactory extends Factory
      */
     public function definition()
     {
-        //
+        return [
+            "nama"=> $this->faker->name(),
+            "bab"=> $this->faker->word(1),
+            "teori" => $this->faker->paragraph(),
+            "video" => $this->faker->youtubeShortUri(),
+        ];
     }
 }
