@@ -16,9 +16,10 @@ class SoalFactory extends Factory
      */
     public function definition()
     {
+        $a=$this->faker->randomElements($array = array ('a','b','c','d'),$count=1);
         return [
             'deskripsi' => $this->faker->paragraph(3),
-            'jawaban' => $this->faker->randomLetter(['a', 'b', 'c', 'd']),
+            'jawaban' => $a[0],
             'a' => $this->faker->word(1),
             'b' => $this->faker->word(1),
             'c' => $this->faker->word(1),
