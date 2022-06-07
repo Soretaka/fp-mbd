@@ -17,7 +17,7 @@ class pelajaran extends Model
         return $this->hasMany(Soal::class);
     }
 
-    public function pengajar(){
-        return $this->hasMany(Pengajar::class);
+    public function pengajar_pelajar(){
+        return $this->hasMany(pengajar_pelajar::class);
     }
 }

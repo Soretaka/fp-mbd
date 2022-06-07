@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\PelajaranController;
 use App\Http\Controllers\UjianController;
 use Illuminate\Support\Facades\Route;
 use App\Models\pelajar;
 use App\Http\Controllers\PelajarController;
 use App\Http\Controllers\PelajarUjianController;
+use App\Http\Controllers\PengajarPelajarController;
 use App\Http\Controllers\SoalController;
 use App\Models\pelajar_ujian;
 
@@ -30,4 +32,7 @@ Route::get('/pengajar/{pengajar:id}/jumlah_soal', [SoalController::class, 'count
 Route::get('/ujian/jumlah_soal', [SoalController::class, 'viewPerPelajaran']);
 Route::get('/ujian/{pelajaran:id}/jumlah_soal', [SoalController::class, 'countForPelajaran']);
 Route::get('/ujian/{ujian:id}',[UjianController::class,'viewSoal']);
-Route::post('/store', [UjianController::class, 'cariNilai'])->name('store-data-jawaban');
+Route::post('/store', [UjianController::class, 'store'])->name('store-data');
+Route::get('/pelajaran/{pelajaran:id}', [PengajarPelajarController::class, 'countForPengajar']);
+Route::get('/pelajaran', [PelajaranController::class, 'listpelajaran']);
+Route::post('/store/nilai', [UjianController::class, 'cariNilai'])->name('store-data-jawaban');

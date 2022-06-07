@@ -17,5 +17,6 @@
 </head>
 <body>
         <div>Jumlah Pelajar yang lolos ujian {{ $ujian->nama }}: {{ $count }}</div>  
+        <div>Winrate : {{ $winrate }}</div>
 </body>
 </html>

@@ -2,7 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\pengajar;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\soal;
+use App\Models\pelajaran;
+use App\Models\Ujian;
 use Illuminate\Database\Seeder;
 use App\Models\soal;
 use App\Models\pelajaran;
@@ -18,10 +22,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        soal::factory(20)->create();
-        pelajaran::factory(20)->create();
-        Ujian::factory(20)->create();
-        pengajar::factory(5)->create();
-        pelajar::factory(5)->create();
+        $this->call([
+            PelajaranSeeder::class,
+            PelajaranUjianSeeder::class,
+            PelajarPelajaranSeeder::class,
+            PelajarSeeder::class,
+            PelajarUjianSeeder::class,
+            PengajarPelajarSeeder::class,
+            PengajarSeeder::class,
+            SoalSeeder::class,
+            UjianSeeder::class,
+        ]);
     }
 }

@@ -11,10 +11,13 @@ class PelajarUjianController extends Controller
 {
     //
     public function countLolos(Ujian $ujian){
-        $count = DB::table('pelajar_ujians')->where('ujian_id', $ujian->id)->where('status', true)->count();
+        $lulus = DB::table('pelajar_ujians')->where('ujian_id', $ujian->id)->where('status', true)->count();
+        $winrate = DB::table('pelajar_ujians')->where('ujian_id', $ujian->id)->count();
+        $winrate = $lulus / $winrate * 100;
         return view('jumlah_lolos', [
             'ujian' => $ujian,
-            'count' => $count,
+            'count' => $lulus,
+            'winrate' => $winrate,
         ]);
     }
 }

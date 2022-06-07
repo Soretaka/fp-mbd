@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\pengajar_pelajar>
  */
-class PengajarPelajarFactory extends Factory
+class Pengajar_PelajarFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,8 @@ class PengajarPelajarFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'pengajar_id' => $this->faker->numberBetween(1, 5),
+            'pelajaran_id' => $this->faker->numberBetween(1, 15),
         ];
     }
 }
