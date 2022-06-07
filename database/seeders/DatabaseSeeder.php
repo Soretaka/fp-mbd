@@ -8,7 +8,11 @@ use App\Models\soal;
 use App\Models\pelajaran;
 use App\Models\Ujian;
 use Illuminate\Database\Seeder;
-
+use App\Models\soal;
+use App\Models\pelajaran;
+use App\Models\pengajar;
+use App\Models\Ujian;
+use App\Models\pelajar;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -18,16 +22,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-        soal::factory(20)->create();
-        pelajaran::factory(20)->create();
-        Ujian::factory(20)->create();
-        pengajar::factory(5)->create();
         $this->call([
             PelajaranSeeder::class,
             PelajaranUjianSeeder::class,
