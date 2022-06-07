@@ -17,7 +17,11 @@ class SoalFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'deskripsi' => $this->faker->paragraph(3),
+            'jawaban' => $this->faker->string(),
+            'ujian_id' => $this->faker->numberBetween(1, 3),
+            'pelajaran_id' => $this->faker->numberBetween(1, 3),
+            'pengajar_id' => $this->faker->numberBetween(1, 3),
         ];
     }
 }

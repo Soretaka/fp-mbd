@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\pengajar;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +15,6 @@ class PengajarSeeder extends Seeder
      */
     public function run()
     {
-        //
+        pengajar::factory(5)->create();
     }
 }

@@ -17,7 +17,7 @@ class PengajarFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nama' => $this->faker->name(),
         ];
     }
 }

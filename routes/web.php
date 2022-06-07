@@ -3,6 +3,10 @@
 use App\Http\Controllers\UjianController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PelajarController;
+use App\Http\Controllers\PelajarUjianController;
+use App\Http\Controllers\SoalController;
+use App\Models\pelajar_ujian;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +24,5 @@ Route::get('/', function () {
 
 Route::get('/data_ujian', [UjianController::class, 'viewDataUjian']);
 Route::get('/lihat_dashboard/{pelajar:id}', [PelajarController::class, 'lihatDashboard']);
+Route::get('/ujian/{ujian:id}/jumlah_lolos', [PelajarUjianController::class, 'countLolos']);
+Route::get('/pengajar/{pengajar:id}/jumlah_soal', [SoalController::class, 'countForPengajar']);
