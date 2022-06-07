@@ -13,36 +13,49 @@
     </div>
   @endif
         @php
-            $i=1;
+            $i=0;
         @endphp
     <div class="card shadow mb-4">
         <div class="card-body container">
             <div class="row g-5">
-        @foreach ($soals as $soal)
-        <div class="card ml-3 mb-3" style="width:1920px">
-        <form name="add-blog-post-form" id="add-blog-post-form" method="post" action="{{url('store-form')}}">
-            <div class="ml-3">{{ $i }}. {{ $soal->deskripsi }}</div>
-            @csrf
-             <div class="form-group">
-               <label for="jawaban" class="ml-3">Jawaban</label> <br>
+                <form action="{{ route('store-data-jawaban') }}" method="POST">
+                @foreach ($soals as $soal)
+                <div class="card ml-3 mb-3" style="width:1000px">
+                    <div class="ml-3">{{ $i+1 }}. {{ $soal->deskripsi }}</div>
+                    @csrf
+                    <div class="form-group">
+                        <label for="jawaban" class="ml-3">Jawaban</label> <br>
                {{-- <input type="radio" class="lmc-choice-input" id="lmc-choice-input-{{ $choice->id }}" name="lmc-question-input-{{ $question->id }}" value="{{ $choice->id }}" {{ ($selectedChoice != null && $choice->id == $selectedChoice->id) ? 'checked' : '' }}>  --}}
-               <input type="radio" class="lmc-choice-input ml-3" id="a" name="a" class="form-control" required=""> {{ $soal->a }} <br>
-               <input type="radio" class="lmc-choice-input ml-3" id="b" name="b" class="form-control" required=""> {{ $soal->b }} <br>
-               <input type="radio" class="lmc-choice-input ml-3" id="c" name="c" class="form-control" required=""> {{ $soal->c }} <br>
-               <input type="radio" class="lmc-choice-input ml-3" id="d" name="d" class="form-control" required=""> {{ $soal->d }}
-             </div>
-             <button type="submit" class="btn btn-primary">Submit</button>
-           </form>    
-           <br>
-           @php
-               $i+=1;
-           @endphp
+                            <tr>
+                            <td></td>
+                            <td><input name="ans[{{ $i }}]" type="radio" value="a" checked> A. {{ $soal->a }}</td><br>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td> <input name="ans[{{ $i }}]" type="radio" value="b"> B. {{ $soal->b }}</td><br>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td> <input name="ans[{{ $i }}]" type="radio" value="c"> C. {{ $soal->c }}</td><br>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input name="ans[{{ $i }}]" type="radio" value="d"> D. {{ $soal->d }}</td><br>
+                        </tr>
+                        </div>    
+                        <br>
+                        @php
+                            $i+=1;
+                        @endphp
+                    </div>
+                    @endforeach
+                    {{-- {{ dd($ujian->id) }} --}}
+                <button type="submit" class="btn btn-primary" name="ujian_id" value="{{ $ujian->id }}" >Submit</button>
+                </form>
+            </div>
         </div>
-        @endforeach
     </div>
 </div>
-</div>
-  </div>
 </div>  
 </body>
 </html>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UjianController;
 use Illuminate\Support\Facades\Route;
+use App\Models\pelajar;
 use App\Http\Controllers\PelajarController;
 use App\Http\Controllers\PelajarUjianController;
 use App\Http\Controllers\SoalController;
@@ -29,4 +30,4 @@ Route::get('/pengajar/{pengajar:id}/jumlah_soal', [SoalController::class, 'count
 Route::get('/ujian/jumlah_soal', [SoalController::class, 'viewPerPelajaran']);
 Route::get('/ujian/{pelajaran:id}/jumlah_soal', [SoalController::class, 'countForPelajaran']);
 Route::get('/ujian/{ujian:id}',[UjianController::class,'viewSoal']);
-Route::post('/store', [UjianController::class, 'store'])->name('store-data');
+Route::post('/store', [UjianController::class, 'cariNilai'])->name('store-data-jawaban');
