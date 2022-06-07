@@ -18,7 +18,7 @@ class SoalFactory extends Factory
     {
         return [
             'deskripsi' => $this->faker->paragraph(3),
-            'jawaban' => $this->faker->randomElements(['a', 'b', 'c', 'd']),
+            'jawaban' => $this->faker->randomLetter(['a', 'b', 'c', 'd']),
             'a' => $this->faker->word(1),
             'b' => $this->faker->word(1),
             'c' => $this->faker->word(1),
