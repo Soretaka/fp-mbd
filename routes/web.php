@@ -28,3 +28,4 @@ Route::get('/ujian/{ujian:id}/jumlah_lolos', [PelajarUjianController::class, 'co
 Route::get('/pengajar/{pengajar:id}/jumlah_soal', [SoalController::class, 'countForPengajar']);
 Route::get('/ujian/jumlah_soal', [SoalController::class, 'viewPerPelajaran']);
 Route::get('/ujian/{pelajaran:id}/jumlah_soal', [SoalController::class, 'countForPelajaran']);
+Route::get('/ujian/{ujian:id}',[UjianController::class,'viewSoal']);
