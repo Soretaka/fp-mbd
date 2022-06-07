@@ -29,3 +29,4 @@ Route::get('/pengajar/{pengajar:id}/jumlah_soal', [SoalController::class, 'count
 Route::get('/ujian/jumlah_soal', [SoalController::class, 'viewPerPelajaran']);
 Route::get('/ujian/{pelajaran:id}/jumlah_soal', [SoalController::class, 'countForPelajaran']);
 Route::get('/ujian/{ujian:id}',[UjianController::class,'viewSoal']);
+Route::post('/store', [UjianController::class, 'store'])->name('store-data');
