@@ -19,6 +19,10 @@ class SoalFactory extends Factory
         return [
             'deskripsi' => $this->faker->paragraph(3),
             'jawaban' => $this->faker->sentence(3),
+            'a' => $this->faker->word(1),
+            'b' => $this->faker->word(1),
+            'c' => $this->faker->word(1),
+            'd' => $this->faker->word(1),
             'ujian_id' => $this->faker->numberBetween(1, 3),
             'pelajaran_id' => $this->faker->numberBetween(1, 3),
             'pengajar_id' => $this->faker->numberBetween(1, 3),
