@@ -8,10 +8,6 @@ use App\Models\soal;
 use App\Models\pelajaran;
 use App\Models\Ujian;
 use Illuminate\Database\Seeder;
-use App\Models\soal;
-use App\Models\pelajaran;
-use App\Models\pengajar;
-use App\Models\Ujian;
 use App\Models\pelajar;
 class DatabaseSeeder extends Seeder
 {
