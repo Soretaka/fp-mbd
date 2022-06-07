@@ -9,10 +9,11 @@ class pengajar extends Model
 {
     use HasFactory;
     
-    public function pelajaran(){
-        return $this->hasMany(Pelajaran::class);
-    }
     
+    public function pengajar_pelajar(){
+        return $this->hasMany(pengajar_pelajar::class);
+    }
+
     public function soal(){
         return $this->hasMany(soal::class);
     }

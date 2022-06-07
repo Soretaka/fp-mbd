@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\pengajar_pelajar;
+use Database\Factories\PengajarPelajarFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +16,6 @@ class PengajarPelajarSeeder extends Seeder
      */
     public function run()
     {
-        //
+        pengajar_pelajar::factory(50)->create();
     }
 }
