@@ -16,7 +16,11 @@ return new class extends Migration
         Schema::create('soals', function (Blueprint $table) {
             $table->id();
             $table->text('deskripsi');
-            $table->string('jawaban');
+            $table->string('a');
+            $table->string('b');
+            $table->string('c');
+            $table->string('d');
+            $table->string('kunci');
             $table->foreignId('ujian_id');
             $table->foreignId('pelajaran_id');
             $table->foreignId('pengajar_id');
