@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('b');
             $table->string('c');
             $table->string('d');
-            $table->string('kunci');
+            $table->string('jawaban');
             $table->foreignId('ujian_id');
             $table->foreignId('pelajaran_id');
             $table->foreignId('pengajar_id');
