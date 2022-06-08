@@ -19,6 +19,7 @@ class PelajarFactory extends Factory
         return [
             "nama"=> $this->faker->name(),
             "kelas"=> $this->faker->numberBetween(1, 12),
+            "jenis_kelamin" => $this->faker->randomElement(['male', 'female']),
             "tanggal_lahir" => $this->faker->date(),
             "tempat_lahir" => $this->faker->city(),
         ];
