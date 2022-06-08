@@ -25,8 +25,6 @@ class UjianController extends Controller
         $soals=soal::where('ujian_id',$pelajar_ujian->ujian_id)->get();
         return view('ujian',[
             'soals' => $soals,
-            // 'ujian' => $pelajar_ujian->ujian_id,
-            // 'pelajar' => $pelajar_ujian->pelajar_id,
             'pelajar_ujian' => $pelajar_ujian,
         ]);
     }
@@ -36,11 +34,9 @@ class UjianController extends Controller
         $ujian_id=$request->ujian_id;
         $pelajar_id=$request->pelajar_id;
         $pelajar_ujian_id=$request->pelajar_ujian;
-        // dd($userAnswers[1]);
         $realAnswers= soal::where('ujian_id',$ujian_id)
                     ->orderBy('id')
                     ->pluck('jawaban');
-        // dd($realAnswers);    
         $counts = soal::where('ujian_id',$ujian_id)->count();
         $ujian= ujian::where('id',$ujian_id)->get()->first();
         $flag=0;
@@ -52,9 +48,7 @@ class UjianController extends Controller
         $flag+=1;
         }
         $nilai=$ansright/$counts * 100;
-        // dd($pelajar_ujian_id);
         $ujian_pelajaran=pelajar_ujian::findOrFail($pelajar_ujian_id);
-        // dd($ujian_pelajaran);
         if($nilai > $ujian->kkm){
             $status = 1;
         }else{
@@ -68,7 +62,6 @@ class UjianController extends Controller
             "status" => $status
         ];
         DB::table('pelajar_ujians')->where('id',$ujian_pelajaran->id)->update($new_data);
-        // $ujian_pelajaran=update($new_data);
         return view('tampilkan_nilai',[
             'nilai' => $nilai,
         ]);
