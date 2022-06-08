@@ -66,7 +66,7 @@
 
                 <div class="w-full p-1">
                     <!--Table Card-->
-                    <div class="bg-gray-50 border border-gray-800 rounded shadow">
+                    <div class="bg-gray-100 border border-gray-800 rounded shadow">
                         <div class="border-b border-gray-900 p-3">
                             <h5 class="font-bold uppercase text-gray-500">MBD F</h5>
                         </div>
@@ -81,15 +81,27 @@
 
                                 <tbody>
                                     <tr>
-                                        <td>Obi Wan Kenobi</td>
-                                        <td>Light</td>
+                                        <td>Anak Agung Yathesta Parwata</td>
+                                        <td>5025201234</td>
                                     </tr>
                                     <tr>
-                                        <td>Greedo</td>
+                                        <td>Putu Ravindra Wiguna</td>
                                         <td>South</td>
                                     </tr>
                                     <tr>
-                                        <td>Darth Vader</td>
+                                        <td>Tegar Ganang Satrio Priambodo</td>
+                                        <td>5025201002</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Aiffah Kiysa Waafi</td>
+                                        <td>5025201202</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hanif Ahmad Jauhari</td>
+                                        <td>Dark</td>
+                                    </tr>                                   
+                                    <tr>
+                                        <td>Januar Evan</td>
                                         <td>Dark</td>
                                     </tr>                                   
                                 </tbody>

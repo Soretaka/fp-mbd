@@ -8,7 +8,7 @@ use App\Models\pengajar;
 class PengajarController extends Controller
 {
     //
-    public function list(){
+    public function listpengajar(){
         $pengajar = pengajar::select()->get();
         // return $pelajaran;
         return view('listpengajar',[

@@ -22,6 +22,14 @@ class UjianController extends Controller
         return view('dataujian', ["datas" => $ujian_atr]);
     }
 
+    public function viewUjian(ujian $ujian){
+        $soals=soal::where('ujian_id',$ujian->ujian_id)->get();
+        return view('ujian',[
+            'soals' => $soals,
+            'pelajar_ujian' => $ujian,
+        ]);
+    }
+
     public function viewSoal(pelajar_ujian $pelajar_ujian){
         // $q=DB::table('pelajar_ujians')->where('ujian_id',$pelajar_ujian->ujian_id)->get();
         // dd($q);

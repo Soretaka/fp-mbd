@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Ujian</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
+@extends('layout.template')
+
+@section('container')
 <body>
+    <div class="text-white">
   <div class="container mt-4">
   @if(session('status'))
     <div class="alert alert-success">
@@ -62,4 +59,4 @@
 </div>
 </div>  
 </body>
-</html>
+@endsection

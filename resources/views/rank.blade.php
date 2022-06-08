@@ -1,21 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Rangking Ujian</title>
-    <style>
-        .identity{
-            font-family:sans-serif;
-            font-size: 2vh
-        }
-        .history{
-            margin-top: 15px;
-        }
-    </style>
-</head>
+@extends('layout.template')
+
+@section('container')
 <body>
+    <div class="text-white">
     <div class="card-body container">
         <div>Rangking: {{ $ujian[0]->nama}}</div>
         <table style="text-indent: 50">
@@ -47,4 +34,8 @@
     </div>
 
 </body>
+<<<<<<< HEAD
+@endsection
+=======
 </html>
+>>>>>>> 0dec4677d7eec19c73b2b81202f7c25f62c35456
