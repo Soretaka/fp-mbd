@@ -18,5 +18,8 @@
 <body>
         <div>Jumlah Pelajar yang lolos ujian {{ $ujian->nama }}: {{ $count }}</div>  
         <div>Winrate : {{ $winrate }}</div>
+        <div>Persentase Pelajar laki-laki yang lolos ujian : {{ $male }}%</div>
+        <div>Persentase Pelajar Perempuan yang lolos ujian : {{ $female }}%</div>
+        <div>Ratio laki-laki/perempuan: {{ $ratio }}</div>
 </body>
 </html>
