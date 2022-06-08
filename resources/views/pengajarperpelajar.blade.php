@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+@extends('layout.template')
+
+@section('container')
 <body>
+    <div class="text-white">
     @foreach ($subject as $item)
         <div>
             Pelajaran : {{ $item['nama'] }}
@@ -23,4 +19,4 @@
         </div>
     @endforeach
 </body>
-</html>
+@endsection

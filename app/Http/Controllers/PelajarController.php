@@ -9,6 +9,14 @@ use phpDocumentor\Reflection\PseudoTypes\False_;
 
 class PelajarController extends Controller
 {
+    public function listpelajar(){
+        $pelajars = pelajar::select()->get();
+        // return $pelajaran;
+        return view('listpelajar',[
+           'pelajar' => $pelajars,
+        ]);
+    }
+    
     public function lihatDashboard(pelajar $pelajar){
         $pelajar_data = $pelajar->get_basic_atr();
         

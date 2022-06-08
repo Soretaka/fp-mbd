@@ -11,6 +11,13 @@ use App\Models\pelajar_ujian;
 class SoalController extends Controller
 {
     //
+    public function listSoal(){
+        $pelajaran = pelajaran::latest()->get();
+
+        return view('listSoal', [
+            'pelajaran' => $pelajaran
+        ]);
+    }
     public function countForPengajar(pengajar $pengajar){
         $count = DB::table('soals')->where('pengajar_id', $pengajar->id)->count();
         return view('jumlah_soal', [
@@ -31,7 +38,7 @@ class SoalController extends Controller
             'datas'=>$jumsol,
         ]);
     }
-    
+
     public function countForPelajaran(pelajaran $pelajaran){
         $count = DB::table('soals')->where('pelajaran_id',$pelajaran->id)->count();
         // $soals = DB::table('soals')->where('pelajaran_id',$pelajaran->id)->get();
