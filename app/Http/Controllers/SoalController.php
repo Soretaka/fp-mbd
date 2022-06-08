@@ -48,5 +48,36 @@ class SoalController extends Controller
             'soals' => $soals,
         ]);
     }
+
+    public function viewSoalPelajaran(pelajaran $pelajaran){
+        $soals=soal::where('pelajaran_id',$pelajaran->id)->get();
+        return view('soal',[
+            'soals' => $soals,
+            'pelajaran' => $pelajaran,
+        ]);
+    }
+
+    public function nilai(Request $request){
+        $userAnswers=$request->ans;
+        $pelajaran_id=$request->pelajaran_id;
+        // dd($userAnswers[1]);
+        $realAnswers= soal::where('pelajaran_id',$pelajaran_id)
+                    ->orderBy('id')
+                    ->pluck('jawaban');
+        // dd($realAnswers);    
+        $counts = soal::where('pelajaran_id',$pelajaran_id)->count();
+        $flag=0;
+        $ansright=0;
+        foreach($realAnswers as $realans){
+            if($realans == $userAnswers[$flag]){
+                $ansright+=1;
+            };
+        $flag+=1;
+        }
+        $nilai=$ansright/$counts * 100;
+        return view('tampilkan_nilai',[
+            'nilai' => $nilai,
+        ]);
+    }
 }
 

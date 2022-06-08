@@ -40,6 +40,8 @@
             </tr>
             @endforeach
         </table>
+        <br>
+        <td>Nilai total ujian = {{ $total_ujian }}</td>
     </div>
 
 </body>

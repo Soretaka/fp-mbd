@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ujian</title>
+    <title>Soal</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -18,7 +18,7 @@
     <div class="card shadow mb-4">
         <div class="card-body container">
             <div class="row g-5">
-                <form action="{{ route('store-data') }}" method="POST">
+                <form action="{{ route('store-nilai') }}" method="POST">
                 @foreach ($soals as $soal)
                 <div class="card ml-3 mb-3" style="width:1000px">
                     <div class="ml-3">{{ $i+1 }}. {{ $soal->deskripsi }}</div>
@@ -50,11 +50,7 @@
                     </div>
                     @endforeach
                     {{-- {{ dd($ujian->id) }} --}}
-                    {{-- {{ dd($pelajar) }} --}}
-                    {{-- {{ dd($pelajar_ujian->id) }} --}}
-                    <input type="hidden" name="pelajar_ujian" value="{{ $pelajar_ujian->id }}">
-                    <input type="hidden" name="pelajar_id" value="{{ $pelajar_ujian->pelajar_id }}">
-                <button type="submit" class="btn btn-primary" name="ujian_id" value="{{ $pelajar_ujian->ujian_id }}" >Submit</button>
+                <button type="submit" class="btn btn-primary" name="pelajaran_id" value="{{ $pelajaran->id }}" >Submit</button>
                 </form>
             </div>
         </div>

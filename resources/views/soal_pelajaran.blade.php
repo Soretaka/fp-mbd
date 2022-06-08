@@ -20,7 +20,7 @@
         @php
             $i=1;
         @endphp
-        <div> soal pelajaran {{ $data[0]->nama}} </div>
+        <div> soal pelajaran {{ $data[5]->nama}} </div>
         @foreach ($data as $soal)
         <div>{{ $i }} . {{ $soal->deskripsi }}</div>
         @php
