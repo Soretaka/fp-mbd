@@ -12,6 +12,8 @@ class UjianController extends Controller
         $ujian_atr = DB::table('ujians')->select("id", "nama")->get();
         
         foreach ($ujian_atr as $ujian){
+            $count_soal_ujian = DB::table('soals')->where('ujian_id', $ujian->id)->count();
+            $ujian->count = $count_soal_ujian;
             $total_peserta = DB::table('pelajar_ujians')->where('ujian_id', $ujian->id)->count();
             $ujian->total_peserta = $total_peserta;
         }
@@ -45,6 +47,16 @@ class UjianController extends Controller
         $nilai=$ansright/$counts * 100;
         return view('tampilkan_nilai',[
             'nilai' => $nilai,
+        ]);
+    }
+
+    public function countForUjian(ujian $ujian){
+        $count_soal_ujian = DB::table('soals')->where('ujian_id', $ujian->id)->count();
+        $soal_ujian = soal::where('ujian_id', $ujian->id)->get();
+
+        return view('dataujian', [
+            'count_soal' => $count_soal_ujian,
+            'ujians' => $soal_ujian
         ]);
     }
 }

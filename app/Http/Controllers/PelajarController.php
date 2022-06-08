@@ -18,7 +18,7 @@ class PelajarController extends Controller
         //                 ->where('pelajar_id', $idPelajar)
         //                 ->get();
         $pelajar_ujian_data = $pelajar->pelajar_ujian;
-        
+        $total_ujian = 0;
 
         $ujian_detail = [];
         $everUjian = false;
@@ -33,15 +33,20 @@ class PelajarController extends Controller
             $everUjian = true;
             // $ujian->nama = $ujian_atr->nama;
             // $ujian->tanggal = $ujian_atr->tanggal;
+            // hitung total nilai
+            $total_ujian += $ujian->nilai;
         }
-
+        
         // dd($ujian_detail);
         // dd($pelajar_data, $ujian_history, $result);
         // dd($pelajar_data, $pelajar_ujian_data, $ujian_detail);
         if($everUjian)
             return view("lihatdashboard", ["pelajar" => $pelajar_data,
-                                       "ujian_history" => $ujian_detail]);
+                                       "ujian_history" => $ujian_detail,
+                                        "total_ujian" => $total_ujian]);
     
         return view("lihatdashboard_kosong", ["pelajar" => $pelajar_data]);
     }
+
+
 }

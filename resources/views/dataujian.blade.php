@@ -10,16 +10,18 @@
     <table style="text-indent: 50">
         <tr>
         <td>ID</td>
-        <td>Nama</td>
+        <td>Nama Ujian</td>
+        <td>Jumlah soal ujian</td>
         <td>Total Peserta</td>
         </tr>
         @foreach ($datas as $data)
         <tr>
         <td>{{ $data->id }}</td>
         <td>{{ $data->nama }}</td>
+        <td>{{ $data->count }}</td>
         <td>{{ $data->total_peserta }}</td>
-        </tr>
-        @endforeach
+    </tr>
+    @endforeach
         </table>
 </body>
 </html>

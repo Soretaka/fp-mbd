@@ -17,5 +17,12 @@ class PelajarUjianSeeder extends Seeder
     {
         pelajar_ujian::factory(300)->lulus()->create();
         pelajar_ujian::factory(100)->tidak_lulus()->create();
+
+        pelajar_ujian::create([
+            'pelajar_id' => '2',
+            'ujian_id' => '17',
+            'nilai' => '80',
+            'status' => 1
+        ]);
     }
 }
