@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\pelajaran;
 use App\Models\soal;
+use App\Models\pelajar_ujian;
 class SoalController extends Controller
 {
     //
@@ -79,3 +80,4 @@ class SoalController extends Controller
         ]);
     }
 }
+

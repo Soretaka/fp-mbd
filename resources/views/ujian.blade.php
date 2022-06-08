@@ -50,7 +50,11 @@
                     </div>
                     @endforeach
                     {{-- {{ dd($ujian->id) }} --}}
-                <button type="submit" class="btn btn-primary" name="ujian_id" value="{{ $ujian->id }}" >Submit</button>
+                    {{-- {{ dd($pelajar) }} --}}
+                    {{-- {{ dd($pelajar_ujian->id) }} --}}
+                    <input type="hidden" name="pelajar_ujian" value="{{ $pelajar_ujian->id }}">
+                    <input type="hidden" name="pelajar_id" value="{{ $pelajar_ujian->pelajar_id }}">
+                <button type="submit" class="btn btn-primary" name="ujian_id" value="{{ $pelajar_ujian->ujian_id }}" >Submit</button>
                 </form>
             </div>
         </div>
