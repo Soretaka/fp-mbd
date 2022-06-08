@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->integer('kelas');
+            $table->string('jenis_kelamin');
             $table->date('tanggal_lahir');
             $table->string('tempat_lahir');
             $table->timestamps();

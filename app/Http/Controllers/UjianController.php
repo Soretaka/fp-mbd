@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\DB;
-use App\Models\Ujian;
-use App\Models\pelajar_ujian;
 use App\Models\soal;
+use App\Models\Ujian;
 use Illuminate\Http\Request;
+use App\Models\pelajar_ujian;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class UjianController extends Controller
 {
@@ -30,11 +31,35 @@ class UjianController extends Controller
     }
 
     public function viewSoal(pelajar_ujian $pelajar_ujian){
-        $soals=soal::where('ujian_id',$pelajar_ujian->ujian_id)->get();
+        // $q=DB::table('pelajar_ujians')->where('ujian_id',$pelajar_ujian->ujian_id)->get();
+        // dd($q);
+//         $users = User::where('active','1')->where(function($query) {
+// 			$query->where('email','jdoe@example.com')
+// 						->orWhere('email','johndoe@example.com');
+// })->get();
+        $ujian=ujian::find($pelajar_ujian['ujian_id']);
+        $nama_ujian=$ujian->nama;   
+        $soals=soal::whereHas('ujian',function($q) use ($nama_ujian){
+            $q->where('nama',$nama_ujian);
+        })->get();
+        // select
+        // *
+        // from
+        // `soals`
+        // where
+        // exists (
+        //     select
+        //     *
+        //     from
+        //     `ujians`
+        //     where
+        //     `soals`.`ujian_id` = `ujians`.`id`
+        //     and `nama` = $nama_ujian
+        // )
+        //cara kedua
+        // $soals=soal::where('ujian_id',$pelajar_ujian->ujian_id)->get();
         return view('ujian',[
             'soals' => $soals,
-            // 'ujian' => $pelajar_ujian->ujian_id,
-            // 'pelajar' => $pelajar_ujian->pelajar_id,
             'pelajar_ujian' => $pelajar_ujian,
         ]);
     }
@@ -44,11 +69,9 @@ class UjianController extends Controller
         $ujian_id=$request->ujian_id;
         $pelajar_id=$request->pelajar_id;
         $pelajar_ujian_id=$request->pelajar_ujian;
-        // dd($userAnswers[1]);
         $realAnswers= soal::where('ujian_id',$ujian_id)
                     ->orderBy('id')
                     ->pluck('jawaban');
-        // dd($realAnswers);    
         $counts = soal::where('ujian_id',$ujian_id)->count();
         $ujian= ujian::where('id',$ujian_id)->get()->first();
         $flag=0;
@@ -60,9 +83,7 @@ class UjianController extends Controller
         $flag+=1;
         }
         $nilai=$ansright/$counts * 100;
-        // dd($pelajar_ujian_id);
         $ujian_pelajaran=pelajar_ujian::findOrFail($pelajar_ujian_id);
-        // dd($ujian_pelajaran);
         if($nilai > $ujian->kkm){
             $status = 1;
         }else{
@@ -76,7 +97,6 @@ class UjianController extends Controller
             "status" => $status
         ];
         DB::table('pelajar_ujians')->where('id',$ujian_pelajaran->id)->update($new_data);
-        // $ujian_pelajaran=update($new_data);
         return view('tampilkan_nilai',[
             'nilai' => $nilai,
         ]);
