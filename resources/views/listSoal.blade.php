@@ -36,7 +36,6 @@
                         <div class="flex-shrink pr-4">
                             <div class="rounded p-3 bg-blue-600"><i class="fas fa-server fa-2x fa-fw fa-inverse"></i></div>
                         </div>
-                        
                         <div class="flex-2 text-right">
                             <h2 class="font-bold uppercase text-black">
                                 <a href="/{{ $p->id }}/soal">Kerjakan soal {{ $p->nama }} {{ $p->id }}</a>
@@ -46,7 +45,6 @@
                 </div>
                 @endforeach
                 <!--Metric Card-->
-                
             </div>
         </div>
     </div>
