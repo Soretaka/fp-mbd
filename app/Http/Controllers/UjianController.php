@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\DB;
-use App\Models\Ujian;
-use App\Models\pelajar_ujian;
 use App\Models\soal;
+use App\Models\Ujian;
 use Illuminate\Http\Request;
+use App\Models\pelajar_ujian;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class UjianController extends Controller
 {
@@ -100,6 +101,19 @@ class UjianController extends Controller
         return view('dataujian', [
             'count_soal' => $count_soal_ujian,
             'ujians' => $soal_ujian
+        ]);
+    }
+
+    public function rank(ujian $ujian){
+        $ujians= DB::table('ujians')->where('id', $ujian->id)->get();
+       
+        $pelajar = DB::table('pelajar_ujians')
+                            ->join('pelajars','pelajar_ujians.pelajar_id','=','pelajars.id')
+                            ->where('ujian_id', $ujian->id)
+                            ->orderBy('nilai', 'desc')->get();
+        return view('rank', [
+            'pelajar' => $pelajar,
+            'ujian'=> $ujians
         ]);
     }
 }
