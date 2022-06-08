@@ -35,3 +35,4 @@ Route::get('/ujian/{ujian:id}',[UjianController::class,'viewSoal']);
 Route::post('/store', [UjianController::class, 'cariNilai'])->name('store-data');
 Route::get('/pelajaran/{pelajaran:id}', [PengajarPelajarController::class, 'countForPengajar']);
 Route::get('/pelajaran', [PelajaranController::class, 'listpelajaran']);
+Route::get('/rank', [UjianController::class, 'viewRanking']);
