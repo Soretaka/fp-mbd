@@ -28,7 +28,7 @@ Route::get('/', function () {
 // route ujian
 Route::get('/data_ujian', [UjianController::class, 'viewDataUjian']);
 Route::get('/ujian/{ujian:id}',[UjianController::class,'viewSoal']);
-Route::post('/store', [UjianController::class, 'cariNilai'])->name('store-data');
+Route::post('/store', [UjianController::class, 'cariNilai'])->name('store-data-jawaban');
 
 Route::get('/lihat_dashboard/{pelajar:id}', [PelajarController::class, 'lihatDashboard']);
 Route::get('/ujian/{ujian:id}/jumlah_lolos', [PelajarUjianController::class, 'countLolos']);
