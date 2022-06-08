@@ -22,7 +22,33 @@ class UjianController extends Controller
     }
 
     public function viewSoal(pelajar_ujian $pelajar_ujian){
-        $soals=soal::where('ujian_id',$pelajar_ujian->ujian_id)->get();
+        // $q=DB::table('pelajar_ujians')->where('ujian_id',$pelajar_ujian->ujian_id)->get();
+        // dd($q);
+//         $users = User::where('active','1')->where(function($query) {
+// 			$query->where('email','jdoe@example.com')
+// 						->orWhere('email','johndoe@example.com');
+// })->get();
+        $ujian=ujian::find($pelajar_ujian['ujian_id']);
+        $nama_ujian=$ujian->nama;   
+        $soals=soal::whereHas('ujian',function($q) use ($nama_ujian){
+            $q->where('nama',$nama_ujian);
+        })->get();
+        // select
+        // *
+        // from
+        // `soals`
+        // where
+        // exists (
+        //     select
+        //     *
+        //     from
+        //     `ujians`
+        //     where
+        //     `soals`.`ujian_id` = `ujians`.`id`
+        //     and `nama` = $nama_ujian
+        // )
+        //cara kedua
+        // $soals=soal::where('ujian_id',$pelajar_ujian->ujian_id)->get();
         return view('ujian',[
             'soals' => $soals,
             'pelajar_ujian' => $pelajar_ujian,
