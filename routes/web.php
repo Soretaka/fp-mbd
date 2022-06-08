@@ -9,7 +9,6 @@ use App\Http\Controllers\PengajarController;
 use App\Http\Controllers\PelajarUjianController;
 use App\Http\Controllers\PengajarPelajarController;
 use App\Http\Controllers\SoalController;
-use App\Http\Controllers\PengajarController;
 use App\Models\pelajar_ujian;
 
 /*
