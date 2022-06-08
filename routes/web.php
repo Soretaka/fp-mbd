@@ -5,6 +5,7 @@ use App\Http\Controllers\UjianController;
 use Illuminate\Support\Facades\Route;
 use App\Models\pelajar;
 use App\Http\Controllers\PelajarController;
+use App\Http\Controllers\PengajarController;
 use App\Http\Controllers\PelajarUjianController;
 use App\Http\Controllers\PengajarPelajarController;
 use App\Http\Controllers\SoalController;
@@ -22,7 +23,7 @@ use App\Models\pelajar_ujian;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layout.dashboard');
 });
 
 // route ujian
@@ -32,6 +33,7 @@ Route::post('/store', [UjianController::class, 'cariNilai'])->name('store-data-j
 
 Route::get('/lihat_dashboard/{pelajar:id}', [PelajarController::class, 'lihatDashboard']);
 Route::get('/ujian/{ujian:id}/jumlah_lolos', [PelajarUjianController::class, 'countLolos']);
+Route::get('/rank/{ujian:id}',[UjianController::class, 'rank']);
 
 // route soal
 Route::get('/pengajar/{pengajar:id}/jumlah_soal', [SoalController::class, 'countForPengajar']);
@@ -43,3 +45,8 @@ Route::post('/store_nilai', [SoalController::class, 'nilai'])->name('store-nilai
 // route pelajaran
 Route::get('/pelajaran/{pelajaran:id}', [PengajarPelajarController::class, 'countForPengajar']);
 Route::get('/pelajaran', [PelajaranController::class, 'listpelajaran']);
+
+Route::get('/soal', [SoalController::class, 'listSoal']);
+// Route::get('/ujian/{ujian:id}',[UjianController::class,'viewUjian']);
+Route::get('/listpelajar', [PelajarController::class, 'listpelajar']);
+Route::get('/pengajar', [PengajarController::class, 'listpengajar']);

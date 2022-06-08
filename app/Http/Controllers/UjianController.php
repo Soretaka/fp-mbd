@@ -21,6 +21,14 @@ class UjianController extends Controller
         return view('dataujian', ["datas" => $ujian_atr]);
     }
 
+    public function viewUjian(ujian $ujian){
+        $soals=soal::where('ujian_id',$ujian->ujian_id)->get();
+        return view('ujian',[
+            'soals' => $soals,
+            'pelajar_ujian' => $ujian,
+        ]);
+    }
+
     public function viewSoal(pelajar_ujian $pelajar_ujian){
         $soals=soal::where('ujian_id',$pelajar_ujian->ujian_id)->get();
         return view('ujian',[
@@ -81,6 +89,19 @@ class UjianController extends Controller
         return view('dataujian', [
             'count_soal' => $count_soal_ujian,
             'ujians' => $soal_ujian
+        ]);
+    }
+
+    public function rank(ujian $ujian){
+        $ujians= DB::table('ujians')->where('id', $ujian->id)->get();
+       
+        $pelajar = DB::table('pelajar_ujians')
+                            ->join('pelajars','pelajar_ujians.pelajar_id','=','pelajars.id')
+                            ->where('ujian_id', $ujian->id)
+                            ->orderBy('nilai', 'desc')->get();
+        return view('rank', [
+            'pelajar' => $pelajar,
+            'ujian'=> $ujians
         ]);
     }
 }
