@@ -18,7 +18,7 @@
     <div class="card shadow mb-4">
         <div class="card-body container">
             <div class="row g-5">
-                <form action="{{ route('store-data') }}" method="POST">
+                <form action="{{ route('store-data-jawaban') }}" method="POST">
                 @foreach ($soals as $soal)
                 <div class="card ml-3 mb-3" style="width:1000px">
                     <div class="ml-3">{{ $i+1 }}. {{ $soal->deskripsi }}</div>
