@@ -31,7 +31,7 @@ Route::get('/ujian/{ujian:id}/jumlah_lolos', [PelajarUjianController::class, 'co
 Route::get('/pengajar/{pengajar:id}/jumlah_soal', [SoalController::class, 'countForPengajar']);
 Route::get('/ujian/jumlah_soal', [SoalController::class, 'viewPerPelajaran']);
 Route::get('/ujian/{pelajaran:id}/jumlah_soal', [SoalController::class, 'countForPelajaran']);
-Route::get('/ujian/{ujian:id}',[UjianController::class,'viewSoal']);
-Route::post('/store', [UjianController::class, 'cariNilai'])->name('store-data');
+Route::get('/ujian/{pelajar_ujian:id}',[UjianController::class,'viewSoal']);
+Route::post('/store', [UjianController::class, 'cariNilai'])->name('store-data-jawaban');
 Route::get('/pelajaran/{pelajaran:id}', [PengajarPelajarController::class, 'countForPengajar']);
 Route::get('/pelajaran', [PelajaranController::class, 'listpelajaran']);

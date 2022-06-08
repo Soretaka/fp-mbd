@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama');
             $table->date('tanggal');
             $table->integer('durasi');
+            $table->integer('kkm');
             $table->timestamps();
         });
     }

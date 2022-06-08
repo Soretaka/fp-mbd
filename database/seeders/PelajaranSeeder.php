@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\pelajaran;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+require_once 'vendor/autoload.php';
 class PelajaranSeeder extends Seeder
 {
     /**
