@@ -27,7 +27,7 @@ Route::get('/', function () {
 });
 
 // route ujian
-Route::get('/data_ujian', [UjianController::class, 'viewDataUjian']);
+Route::get('/data_ujian', [UjianController::class, 'viewDataUjian'])->name('data_ujian');
 Route::get('/ujian/{pelajar_ujian:id}',[UjianController::class,'viewSoal']);
 Route::post('/store', [UjianController::class, 'cariNilai'])->name('store-data-jawaban');
 Route::get('/rank/{ujian:id}',[UjianController::class, 'rank']);
@@ -35,7 +35,8 @@ Route::get('/rank/{ujian:id}',[UjianController::class, 'rank']);
 Route::get('/lihat_dashboard/{pelajar:id}', [PelajarController::class, 'lihatDashboard']);
 Route::get('/ujian/{ujian:id}/jumlah_lolos', [PelajarUjianController::class, 'countLolos']);
 Route::get('/rank/{ujian:id}',[UjianController::class, 'rank']);
-
+Route::get('/nilaiform',[UjianController::class,'insertNilai'])->name('tambah-nilai');
+Route::post('/store_nilai_ujian', [UjianController::class, 'store'])->name('store-data-nilai-ujian');
 // route soal
 Route::get('/soal', [SoalController::class, 'listSoal']);
 Route::get('/pengajar/{pengajar:id}/jumlah_soal', [SoalController::class, 'countForPengajar']);

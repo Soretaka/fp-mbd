@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\soal;
 use App\Models\Ujian;
 use Illuminate\Http\Request;
+use App\Models\pelajar;
 use App\Models\pelajar_ujian;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -64,6 +65,34 @@ class UjianController extends Controller
         ]);
     }
 
+    public function insertNilai(){
+        $ujians=Ujian::all();
+        $pelajar=pelajar::all();
+        return view('insertnilai',[
+            'ujians' => $ujians,
+            'pelajars' => $pelajar
+        ]);
+    }
+
+    public function store(Request $request){
+        $nama_peserta=pelajar::where('nama',$request->name)->first();
+        $nama_ujian=ujian::where('nama',$request->name_ujian)->first();
+        $nilai = $request->nilai_ujian;
+        if($nilai >= $nama_ujian->kkm){
+            $status=1;
+        }else{
+            $status=0;
+        };
+        $new_data=[
+            "pelajar_id" => $nama_peserta->id,
+            "ujian_id" => $nama_ujian->id,
+            "nilai" => $nilai,
+            "status" => $status
+        ];
+        // dd($new_data);
+        pelajar_ujian::create($new_data);
+        return redirect()->route('data_ujian')->with('status', 'Data berhasil ditambah!');
+    }
     public function cariNilai(Request $request){
         $userAnswers=$request->ans;
         $ujian_id=$request->ujian_id;
