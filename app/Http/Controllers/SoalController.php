@@ -20,7 +20,9 @@ class SoalController extends Controller
     }
     public function countForPengajar(pengajar $pengajar){
         $count = DB::table('soals')->where('pengajar_id', $pengajar->id)->count();
+        $datas = soal::all()->where('pengajar_id', $pengajar->id);
         return view('jumlah_soal', [
+            'datas' => $datas,
             'pengajar' => $pengajar,
             'count' => $count,
         ]);
