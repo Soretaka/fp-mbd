@@ -31,7 +31,8 @@ Route::get('/data_ujian', [UjianController::class, 'viewDataUjian'])->name('data
 Route::get('/ujian/{pelajar_ujian:id}',[UjianController::class,'viewSoal']);
 Route::post('/store', [UjianController::class, 'cariNilai'])->name('store-data-jawaban');
 Route::get('/rank/{ujian:id}',[UjianController::class, 'rank']);
-
+Route::get('/ujianform',[UjianController::class,'viewformujian'])->name('tambah-ujian');
+Route::post('/store_data_ujian',[UjianController::class,'storeUjian'])->name('store-data-ujian');
 Route::get('/lihat_dashboard/{pelajar:id}', [PelajarController::class, 'lihatDashboard']);
 Route::get('/ujian/{ujian:id}/jumlah_lolos', [PelajarUjianController::class, 'countLolos']);
 Route::get('/rank/{ujian:id}',[UjianController::class, 'rank']);

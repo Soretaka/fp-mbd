@@ -86,7 +86,7 @@
                                     </tr>
                                     <tr>
                                         <td>Putu Ravindra Wiguna</td>
-                                        <td>South</td>
+                                        <td>5025201237</td>
                                     </tr>
                                     <tr>
                                         <td>Tegar Ganang Satrio Priambodo</td>
@@ -102,7 +102,7 @@
                                     </tr>                                   
                                     <tr>
                                         <td>Januar Evan</td>
-                                        <td>Dark</td>
+                                        <td>5025201210</td>
                                     </tr>                                   
                                 </tbody>
                             </table>

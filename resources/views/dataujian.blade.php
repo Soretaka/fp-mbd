@@ -14,6 +14,12 @@
             </span>
             <span class="text">tambah nilai ujian</span>
         </a>     
+        <a href="{{ route('tambah-ujian') }}" class="btn btn-primary btn-icon-split btn-sm">
+            <span class="icon text-grey-50">
+                <i class="fas fa-plus"></i>
+            </span>
+            <span class="text">tambah ujian</span>
+        </a>     
         <div class="card shadow mb-4">
         <div class="card-body">
             <div class="table-responsive">

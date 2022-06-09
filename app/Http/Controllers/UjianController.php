@@ -6,6 +6,7 @@ use App\Models\Ujian;
 use Illuminate\Http\Request;
 use App\Models\pelajar;
 use App\Models\pelajar_ujian;
+use App\Models\pelajaran;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
@@ -23,6 +24,24 @@ class UjianController extends Controller
         return view('dataujian', ["datas" => $ujian_atr]);
     }
 
+    public function viewformujian(){
+        $pelajaran=pelajaran::get();
+        return view('insertujian',[
+            'pelajarans' => $pelajaran,
+        ]);
+    }
+    
+    public function storeUjian(Request $request){
+        $new_data=[
+            "nama" => $request->name_ujian,
+            "pelajaran_id" => $request->id_pelajaran,
+            "kkm" => $request->kkm,
+            "tanggal" => $request->tanggal,
+            "durasi" => $request->durasi
+        ];
+        ujian::create($new_data);
+        return redirect()->route('data_ujian')->with('status', 'Data berhasil ditambah!');
+    }
     public function viewUjian(ujian $ujian){
         $soals=soal::where('ujian_id',$ujian->ujian_id)->get();
         return view('ujian',[
