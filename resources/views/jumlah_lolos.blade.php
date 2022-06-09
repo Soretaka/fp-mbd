@@ -16,6 +16,28 @@
     </style>
 </head>
 <body>
-        <div>Jumlah Pelajar yang lolos ujian {{ $ujian->nama }}: {{ $count }}</div>  
+        <div>Jumlah Pelajar yang lolos ujian {{ $ujian->nama }}: {{ $count }}</div>
+        <table border="1">
+        <thead>
+        <tr>
+            <th>No.</th>
+            <th>Nama</th>
+        </tr>
+        </thead>
+        @php
+        $it = 1;
+        @endphp
+        <tbody>
+        @foreach($datas as $data)
+        <tr>
+            <td>{{ $it }}</td>
+            <td>{{ $data->pelajar->nama }}</td>
+        </tr>
+        @php
+        $it += 1;
+        @endphp
+        @endforeach
+        </tbody>
+        </table>
 </body>
 </html>

@@ -21,5 +21,10 @@ class DatabaseSeeder extends Seeder
         pelajaran::factory(20)->create();
         Ujian::factory(20)->create();
         pengajar::factory(5)->create();
+
+        $this->call([
+            PelajarSeeder::class,
+            PelajarUjianSeeder::class,
+        ]);
     }
 }
