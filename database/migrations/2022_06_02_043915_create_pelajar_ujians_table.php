@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('pelajar_id');
             $table->foreignId('ujian_id');
-            $table->integer('nilai');
+            $table->integer('nilai')->default(0);
             $table->boolean('status');
             $table->timestamps();
         });

@@ -16,5 +16,6 @@ class PelajarSeeder extends Seeder
     public function run()
     {
         pelajar::factory(200)->create();
+
     }
 }

@@ -20,7 +20,7 @@ class PelajaranFactory extends Factory
             "nama"=> $this->faker->name(),
             "bab"=> $this->faker->word(1),
             "teori" => $this->faker->paragraph(),
-            "video" => $this->faker->paragraph()
+            "video" => $this->faker->youtubeShortUri(),
         ];
     }
 }

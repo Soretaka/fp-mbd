@@ -19,7 +19,8 @@ class UjianFactory extends Factory
         return [
             "nama" => $this->faker->word() . $this->faker->numerify("-###"),
             "tanggal" => $this->faker->date(),
-            "durasi"=> $this->faker->numberBetween(10, 300)
+            "durasi"=> $this->faker->numberBetween(10, 300),
+            "kkm" => $this->faker->numberBetween(65,75),
         ];
     }
 }
