@@ -22,7 +22,6 @@ class PelajarUjianController extends Controller
         $females = $female/$lulus * 100;
         $ratio = $male/$female;
         return view('jumlah_lolos', [
-            'datas' => $datas,
             'ujian' => $ujian,
             'count' => $lulus,
             'winrate' => $winrate,
