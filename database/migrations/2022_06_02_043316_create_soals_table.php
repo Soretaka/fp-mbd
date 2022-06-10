@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('soals', function (Blueprint $table) {
-            $table->id();
+            $table->integer('id')->autoIncrement();
             $table->text('deskripsi');
             $table->string('a');
             $table->string('b');
