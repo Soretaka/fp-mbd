@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MySqlController;
 use App\Http\Controllers\PelajaranController;
 use App\Http\Controllers\UjianController;
 use Illuminate\Support\Facades\Route;
@@ -54,4 +55,6 @@ Route::get('/soal', [SoalController::class, 'listSoal']);
 // Route::get('/ujian/{ujian:id}',[UjianController::class,'viewUjian']);
 Route::get('/listpelajar', [PelajarController::class, 'listpelajar']);
 Route::get('/pengajar', [PengajarController::class, 'listpengajar']);
+
+Route::get('/debug', [MySqlController::class, 'testView']);
 
