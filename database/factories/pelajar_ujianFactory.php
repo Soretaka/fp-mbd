@@ -22,6 +22,7 @@ class pelajar_ujianFactory extends Factory
             "pelajar_id" => $this->faker->numberBetween(1, 200),
             "ujian_id" => $this->faker->numberBetween(1, 20),
             "nilai" => $this->faker->numberBetween(75, 100),
+            "benar" => $this->faker->numberBetween(0, 0),
             // biar semua lulus aja ceritanya ehehe
             "status"=> true,
         ];
