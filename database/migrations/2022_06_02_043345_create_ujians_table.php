@@ -19,7 +19,6 @@ return new class extends Migration
             $table->date('tanggal');
             $table->integer('durasi');
             $table->integer('kkm');
-            $table->foreignId('pelajaran_id');
             $table->timestamps();
         });
     }

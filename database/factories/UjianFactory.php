@@ -21,7 +21,6 @@ class UjianFactory extends Factory
             "tanggal" => $this->faker->date(),
             "durasi"=> $this->faker->numberBetween(10, 300),
             "kkm" => $this->faker->numberBetween(65,75),
-            "pelajaran_id" => $this->faker->numberBetween(1,5),
         ];
     }
 }
