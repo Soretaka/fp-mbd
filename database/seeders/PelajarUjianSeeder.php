@@ -22,6 +22,9 @@ class PelajarUjianSeeder extends Seeder
             'pelajar_id' => '2',
             'ujian_id' => '17',
             'nilai' => '80',
+            "benar" => 50,
+            // "nilai" => "30",
+            // "'nilai'" => 90,
             'status' => 1
         ]);
     }
